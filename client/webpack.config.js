@@ -24,6 +24,7 @@ const config = {
       // app-bundle.js, then we just wasted a bunch of space.
       'axios',
       'immutable',
+      'lodash',
       'react-bootstrap',
       'react-dom',
       'react-redux',

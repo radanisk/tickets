@@ -7,17 +7,17 @@ import { Router, browserHistory } from 'react-router';
 import routes from '../routes/routes';
 
 export default (_props, _railsContext) => {
-    const store = ReactOnRails.getStore('ticketsStore');
+  const store = ReactOnRails.getStore('ticketsStore');
 
-    // Create an enhanced history that syncs navigation events with the store
-    const history = syncHistoryWithStore(
-        browserHistory,
-        store
-    );
+  // Create an enhanced history that syncs navigation events with the store
+  const history = syncHistoryWithStore(
+    browserHistory,
+    store
+  );
 
-    return (
-        <Provider store={store}>
-            <Router history={history} children={routes} />
-        </Provider>
-    );
+  return (
+    <Provider store={store}>
+      <Router history={history} children={routes(store)} />
+    </Provider>
+  );
 };
