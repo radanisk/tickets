@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import BaseComponent from 'libs/components/BaseComponent';
 
-import TicketsList from '../components/TicketsList';
+import Tickets from '../components/Tickets';
 import * as ticketsActionCreators from '../actions/ticketsActionCreators';
 
 function select(state) {
@@ -19,7 +19,7 @@ class TicketsContainer extends BaseComponent {
         const locationState = this.props.location.state;
 
         return (
-            <TicketsList {...{ actions, data, locationState }} />
+            <Tickets {...{ actions, data, locationState }} />
         );
     }
 }
