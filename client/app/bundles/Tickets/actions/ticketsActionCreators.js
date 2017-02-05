@@ -120,7 +120,7 @@ export function submitComment(ticketId, content) {
 export function closeTicket(id) {
   return (dispatch) => {
     return requestsManager
-      .updateTicketStatus(id, 'close')
+      .updateTicketStatus(id, 'closed')
       .then(res => dispatch(fetchTicketSuccess(res.data)));
   }
 }

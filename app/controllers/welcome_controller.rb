@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   def index
     redux_store(
         'ticketsStore',
-        props: render_to_string(template: "api/v1/tickets/index.json.jbuilder", locals: { tickets: Ticket.all }, format: :json)
+        props: render_to_string(template: "api/v1/tickets/index.json.jbuilder", locals: { tickets: current_user ? current_user.tickets.all : [] }, format: :json)
     )
 
     respond_to do |format|

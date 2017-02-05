@@ -10,6 +10,11 @@ gem 'react_on_rails', '~> 6.4.2'
 gem 'cancancan', '~> 1.15.0'
 gem 'devise', '~> 4.2.0'
 
+gem 'inherited_resources', '~> 1.7'
+gem 'simple_form', '~> 3.3.1'
+
+gem 'bootstrap-sass', '~> 3.3.7'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use mysql as the database for Active Record

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>User: <%= resource.name %></h1>
+      <%= link_to 'Edit', edit_agent_user_path(resource), class: %w(btn btn-primary) %>
+      <%= link_to 'Back', agent_users_path, class: %w(btn btn-default) %>
+      <dl class="dl-horizontal">
+        <dt>Email</dt>
+        <dd><%= mail_to resource.email %> </dd>
+        <dt>Created at</dt>
+        <dd><%= l resource.created_at, format: :short %> </dd>
+        <dt>Agent?</dt>
+        <dd><%= resource.agent ? 'yes' : 'no' %> </dd>
+        <dt>Admin?</dt>
+        <dd><%= resource.admin ? 'yes' : 'no' %> </dd>
+      </dl>
+    </div>
+  </div>
+</div>

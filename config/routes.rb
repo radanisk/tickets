@@ -12,7 +12,15 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :agent do
+    resources :tickets, only: [:index, :show, :update] do
+      resources :comments, only: [:create]
+    end
+    resources :users, except: :destroy
+    root to: 'tickets#index'
+  end
 
+  root 'welcome#index'
 
   get '(*path)', to: 'welcome#index'
 end

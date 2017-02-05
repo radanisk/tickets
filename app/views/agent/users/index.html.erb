@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1><%= t('.title') %></h1>
+      <%= link_to 'New', new_agent_user_path, class: %w(btn btn-primary) %>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Created at</th>
+            <th>Agent?</th>
+            <th>Admin?</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% collection.each do |user| %>
+              <tr>
+                <th><%= link_to user.name, agent_user_path(user) %></th>
+                <th><%= mail_to user.email %></th>
+                <th><%= l user.created_at, format: :short %></th>
+                <th><%= user.agent ? 'yes' : 'no' %></th>
+                <th><%= user.admin ? 'yes' : 'no' %></th>
+              </tr>
+          <% end %></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

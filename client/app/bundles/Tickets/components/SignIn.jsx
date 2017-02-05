@@ -36,27 +36,19 @@ export default class SignIn extends BaseComponent {
       <div className="container">
         <div className="row">
           <div className="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
-            <div className="panel panel-default">
-              <div className="panel-heading">
-                <h3 className="panel-title">Please sign in</h3>
-              </div>
-              <div className="panel-body">
-                {this.renderError()}
-                <Form onSubmit={this.handleSubmit}>
-                  <FormGroup>
-                    <label htmlFor="sign-in-email">Email</label>
-                    <input type="email" className="form-control" id="sign-in-email" ref="email"/>
-                  </FormGroup>
-                  <FormGroup>
-                    <label htmlFor="sign-in-password">Password</label>
-                    <input type="password" className="form-control" id="sign-in-password" ref="password" />
-                  </FormGroup>
-                  <div className="text-right">
-                    <button className="btn btn-primary" type="submit">Sign in</button>
-                  </div>
-                </Form>
-              </div>
-            </div>
+            <h2>Please sign in</h2>
+            {this.renderError()}
+            <Form onSubmit={this.handleSubmit}>
+              <FormGroup>
+                <label htmlFor="sign-in-email">Email</label>
+                <input type="email" className="form-control" id="sign-in-email" ref="email"/>
+              </FormGroup>
+              <FormGroup>
+                <label htmlFor="sign-in-password">Password</label>
+                <input type="password" className="form-control" id="sign-in-password" ref="password" />
+              </FormGroup>
+              <button className="btn btn-default" type="submit">Sign in</button>
+            </Form>
           </div>
         </div>
       </div>

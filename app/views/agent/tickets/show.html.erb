@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+      <h1><%= resource.title %> (<%= resource.status %>)</h1>
+      <%= link_to 'Back', agent_tickets_path, class: %w(btn btn-default) %>
+      <%= simple_form_for [:agent, resource] do |f| %>
+          <%= f.association :agent, collection: User.agent %>
+          <%= f.button :submit %>
+      <% end %>
+      <%= simple_form_for resource.comments.new, url: agent_ticket_comments_path(resource) do |f| %>
+          <%= f.input :content %>
+          <%= f.button :submit %>
+      <% end %>
+      <div class="form-group text-right">
+        <% if resource.status == 'open' %>
+            <%= button_to 'Close', agent_ticket_path(ticket: {status: 'closed'}), method: :patch, class: 'btn btn-success' %>
+        <% else %>
+            <%= button_to 'Reopen', agent_ticket_path(ticket: {status: 'open'}), method: :patch, class: 'btn btn-danger' %>
+        <% end %>
+      </div>
+      <% resource.comments.includes(:user).order(id: :desc).each do |resource| %>
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title"> <%= resource.user.name %>
+              @ <%= l resource.created_at, format: :short %> </h3></div>
+            <div class="panel-body"><%= simple_format resource.content %> </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

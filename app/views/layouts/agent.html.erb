@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tickets</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'agent', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'agent', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<div class="container">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar" />
+          <span class="icon-bar" />
+          <span class="icon-bar" />
+        </button>
+        <a class="navbar-brand" href="/agent">Tickets</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="<%= agent_root_path %>"><%= t('agent.tickets.index.title') %></a>
+          </li>
+          <% if current_user.admin? %>
+            <li>
+              <a href="<%= agent_users_path %>"><%= t('agent.users.index.title') %></a>
+            </li>
+          <% end %>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="<%= destroy_user_session_path %>" data-method="delete">Sign out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <%= yield %>
+</div>
+
+</body>
+</html>

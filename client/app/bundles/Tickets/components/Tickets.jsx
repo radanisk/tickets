@@ -20,7 +20,7 @@ export default class Tickets extends BaseComponent {
         <Col xs={12}>
           <h1>Tickets</h1>
           {data.get('$$tickets') ? (
-            <table className="table table-default">
+            <table className="table table-striped">
               <thead>
                 <tr>
                   <th>Title</th>
