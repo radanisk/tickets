@@ -16,18 +16,29 @@ export default class SignIn extends BaseComponent {
   handleSubmit(e) {
     e.preventDefault();
     const { signIn } = this.props.actions;
-    const {email, password} = this.refs;
+    const { email, password } = this.refs;
     signIn(email.value, password.value);
+  }
+
+  renderError() {
+    const { data } = this.props;
+    if (data.get('error')) {
+      return (
+        <div className="alert alert-danger">{data.get('error')}</div>
+      );
+    } else {
+      return false;
+    }
   }
 
   render() {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+          <div className="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
             <div className="panel panel-default">
               <div className="panel-heading">
-                <h3 className="panel-title">Sign in</h3>
+                <h3 className="panel-title">Please sign in</h3>
               </div>
               <div className="panel-body">
                 {this.renderError()}
@@ -50,16 +61,5 @@ export default class SignIn extends BaseComponent {
         </div>
       </div>
     );
-  }
-
-  renderError() {
-    const { data } = this.props;
-    if (data.get('error')) {
-      return (
-        <div className="alert alert-danger">{data.get('error')}</div>
-      );
-    } else {
-      return false;
-    }
   }
 }

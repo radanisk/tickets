@@ -11,6 +11,7 @@ export default (props, railsContext) => {
   const initialState = {
     $$ticketsStore: $$ticketsState.merge({
       $$tickets: initialTickets,
+      $$ticket: null,
     }),
     railsContext,
   };

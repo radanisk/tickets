@@ -25,8 +25,8 @@ export default class Tickets extends BaseComponent {
                 <tr>
                   <th>Title</th>
                   <th>Status</th>
-                  <th>Updated at</th>
                   <th>Created at</th>
+                  <th>Updated at</th>
                 </tr>
               </thead>
               <tbody>
@@ -35,8 +35,8 @@ export default class Tickets extends BaseComponent {
                     <tr key={ticket.get('id')}>
                       <td><a href={'/tickets/' + ticket.get('id')}>{ticket.get('title')}</a></td>
                       <td>{ticket.get('status')}</td>
-                      <td><FormattedRelative value={ticket.get('updated_at')} /></td>
                       <td><FormattedRelative value={ticket.get('created_at')} /></td>
+                      <td><FormattedRelative value={ticket.get('updated_at')} /></td>
                     </tr>
                   )
                 })}

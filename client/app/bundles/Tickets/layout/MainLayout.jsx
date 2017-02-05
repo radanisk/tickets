@@ -23,9 +23,9 @@ class MainLayout extends BaseComponent {
     return (
       <div>
         <nav className="navbar navbar-default" role="navigation">
-          <div className="container">
+          <div className="container-fluid">
             <div className="navbar-header">
-              <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar">
                 <span className="sr-only">Toggle navigation</span>
                 <span className="icon-bar" />
                 <span className="icon-bar" />
@@ -33,16 +33,18 @@ class MainLayout extends BaseComponent {
               </button>
               <a className="navbar-brand" href="/">Tickets</a>
             </div>
-            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div className="collapse navbar-collapse" id="navbar">
               <ul className="nav navbar-nav">
                 <li>
-                  <a href="/"><span className="glyphicon glyphicon-list"></span>&nbsp;Tickets</a>
+                  <a href="/">Tickets</a>
                 </li>
                 <li>
-                  <a href="/tickets/new"><span className="glyphicon glyphicon-pencil"></span>&nbsp;New ticket</a>
+                  <a href="/tickets/new">New ticket</a>
                 </li>
+              </ul>
+              <ul className="nav navbar-nav navbar-right">
                 <li>
-                  <a href="#" onClick={this.handleSignOut}><span className="glyphicon glyphicon-log-out"></span>&nbsp;Sign out</a>
+                  <a href="#" onClick={this.handleSignOut}>Sign out</a>
                 </li>
               </ul>
             </div>
