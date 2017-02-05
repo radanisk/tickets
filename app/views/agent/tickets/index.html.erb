@@ -8,6 +8,8 @@
           <tr>
             <th>Title</th>
             <th>Status</th>
+            <th>User name</th>
+            <th>Agent name</th>
             <th>Created at</th>
             <th>Updated at</th>
           </tr>
@@ -15,10 +17,12 @@
           <tbody>
           <% collection.each do |ticket| %>
               <tr>
-                <th><%= link_to ticket.title, agent_ticket_path(ticket) %></th>
-                <th><%= ticket.status %></th>
-                <th><%= l ticket.created_at, format: :short %></th>
-                <th><%= l ticket.updated_at, format: :short %></th>
+                <td><%= link_to ticket.title, agent_ticket_path(ticket) %></td>
+                <td><%= ticket.status %></td>
+                <td><%= ticket.user ? ticket.user.name : '-' %></td>
+                <td><%= ticket.agent ? ticket.agent.name : '-' %></td>
+                <td><%= l ticket.created_at, format: :short %></td>
+                <td><%= l ticket.updated_at, format: :short %></td>
               </tr>
           <% end %>
           </tbody>

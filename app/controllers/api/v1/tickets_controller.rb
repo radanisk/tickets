@@ -22,13 +22,15 @@ module Api
       end
 
       def show
-        ticket = current_user.tickets.find(params[:id])
+        ticket = Ticket.find(params[:id])
 
         render locals: {ticket: ticket}
       end
 
       def update
-        ticket = current_user.tickets.find(params[:id])
+        ticket = Ticket.find(params[:id])
+
+        authorize! :update, ticket
 
         if ticket.update(ticket_params)
           render(

@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :rememberable, :trackable, :validatable
 
   has_many :tickets
+  has_many :comments
 
   validates :name, presence: true, length: { maximum: 255 }
 
