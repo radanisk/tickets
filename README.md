@@ -1,24 +1,16 @@
-# README
+# Tickets
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails + React test app.
 
-Things you may want to cover:
+**Requirements**
 
-* Ruby version
+- Ruby
+- MySQL
+- NodeJS & npm
 
-* System dependencies
+**Development setup**
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. bundle install && npm i && node client/node_modules/node-sass/scripts/install.js
+2. rails db:create && rails db:migrate
+3. rails db:seed - if you want 3 predefined users: admin@example.com, agent@example.com, user@example.com with password: password
+4. foreman start -f Procfile.dev

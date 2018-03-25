@@ -11,7 +11,10 @@
     "build:production": "NODE_ENV=production webpack --config webpack.config.js",
     "build:development": "webpack -w --config webpack.config.js"
   },
-  "cacheDirectories": ["node_modules", "client/node_modules"],
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ],
   "dependencies": {
     "axios": "^0.15.3",
     "babel": "^6.5.2",
@@ -60,6 +63,5 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.14.0"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
